@@ -34,7 +34,7 @@ npm install lacery
 Or include it directly in your HTML:
 
 ```html
-<script src="https://cdn.example.com/lacery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lacery@latest/dist/index.min.js"></script>
 ```
 
 ## Usage

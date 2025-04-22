@@ -43,6 +43,7 @@ export class Lace{
         div.style.height = '100%';
         div.style.overflow = 'auto';
         div.style.color = 'var(--sl-input-color) !important';
+        div.style.fontFamily = 'var(--sl-font-sans)'
 
         if(darkMode){
             div.classList.add('sl-theme-dark');
