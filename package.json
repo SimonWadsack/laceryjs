@@ -17,7 +17,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "rollup -c && node postbuild.js",
+    "build": "rollup -c && node scripts/postbuild.js",
     "check": "tsc --noEmit",
     "prepare": "npm run build",
     "prepublishOnly": "node scripts/prepublish.js",
