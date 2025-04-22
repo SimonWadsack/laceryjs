@@ -20,8 +20,8 @@
     "build": "rollup -c && node postbuild.js",
     "check": "tsc --noEmit",
     "prepare": "npm run build",
-    "prepublishOnly": "cp README.npm.md README.md && npm run build",
-    "postpublish": "git checkout README.md"
+    "prepublishOnly": "node scripts/prepublish.js",
+    "postpublish": "node scripts/postpublish.js"
   },
   "keywords": [
     "javascript",
