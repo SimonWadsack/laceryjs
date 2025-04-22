@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1476.56 479.88">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 32px;
+      }
+
+      .cls-2 {
+        font-family: CascadiaCodeRoman-Bold, 'Cascadia Code';
+        font-size: 280px;
+        font-variation-settings: 'wght' 700;
+        font-weight: 700;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(0 358.06)"><tspan x="0" y="0">lacery.js</tspan></text>
+  <path class="cls-1" d="M829.61,407.35c-78.67,10.68-154.39,31.74-185.93,9.61-91.88-64.48-47.28,34.95-163.34,9.13-23.84-5.3-59.28,2.21-108.96,21.79-46.93,18.5-75.46,5.97-108.9-19.34"/>
+  <rect class="cls-3" x="200.44" y="396.42" width="59.7" height="13.13" transform="translate(311.02 -54.09) rotate(39.76)"/>
+</svg>

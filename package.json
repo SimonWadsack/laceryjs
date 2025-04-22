@@ -1,0 +1,39 @@
+{
+  "name": "lacery",
+  "version": "1.0.0",
+  "description": "A UI library to quickly build data-driven interfaces based on Shoelace.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c && node postbuild.js",
+    "check": "tsc --noEmit",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "javascript",
+    "typescript",
+    "ui"
+  ],
+  "author": "Simon Wadsack",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@shoelace-style/shoelace": "^2.20.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "rollup": "^4.40.0",
+    "rollup-plugin-dts": "^6.2.1",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.3"
+  }
+}
