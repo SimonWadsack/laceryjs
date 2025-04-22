@@ -1,4 +1,4 @@
-![Logo-Dark-Mode](/docs/lacery_logo_dark.svg#gh-dark-mode-only)![Logo-Light-Mode](/docs/lacery_logo.svg#gh-light-mode-only)
+![Logo-Dark-Mode](/docs/lacery_logo_dark.png#gh-dark-mode-only)![Logo-Light-Mode](/docs/lacery_logo.png#gh-light-mode-only)
 
 <h3 align='center'>A UI library to quickly build data-driven interfaces based on Shoelace.</h3>
 
