@@ -13,14 +13,15 @@
   },
   "files": [
     "dist",
-    "docs",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
     "build": "rollup -c && node postbuild.js",
     "check": "tsc --noEmit",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "prepublishOnly": "cp README.npm.md README.md && npm run build",
+    "postpublish": "git checkout README.md"
   },
   "keywords": [
     "javascript",

@@ -1,13 +1,12 @@
-![Logo-Dark-Mode](/docs/lacery_logo_dark.png#gh-dark-mode-only)![Logo-Light-Mode](/docs/lacery_logo.png#gh-light-mode-only)
+![Logo-Dark-Mode](https://raw.githubusercontent.com/SimonWadsack/laceryjs/refs/heads/main/docs/lacery_logo.png)
 
 <h3 align='center'>A UI library to quickly build data-driven interfaces based on Shoelace.</h3>
 
 <br>
 
-[![NPM](https://img.shields.io/npm/v/lacery)](https://www.npmjs.com/package/lacery)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-View%20Source-blue?logo=github)](https://github.com/SimonWadsack/laceryjs)
 ![License](https://img.shields.io/npm/l/lacery)
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen)](https://github.com/SimonWadsack/laceryjs/wiki)
-
 
 ## Features
 
@@ -70,4 +69,4 @@ This project was inspired by [imgui](https://github.com/ocornut/imgui),  [lil-gu
 
 ## License
 
-This project is licensed under the Apache 2.0 License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache 2.0 License. See the [LICENSE](https://github.com/SimonWadsack/laceryjs/blob/main/LICENSE) file for details.
