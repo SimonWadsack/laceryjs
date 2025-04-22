@@ -13,7 +13,7 @@
 
 ### Dependencies
 
-Lacery.js requires [Shoelace](https://shoelace.style/) to work. Install Shoelace by following the [Shoelace installation guide](https://shoelace.style/getting-started/installation).
+lacery.js requires [Shoelace](https://shoelace.style/) to work. Install Shoelace by following the [Shoelace installation guide](https://shoelace.style/getting-started/installation).
 
 ### NPM or CDN
 

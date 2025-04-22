@@ -11,6 +11,11 @@
       "types": "./dist/index.d.ts"
     }
   },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "rollup -c && node postbuild.js",
     "check": "tsc --noEmit",
