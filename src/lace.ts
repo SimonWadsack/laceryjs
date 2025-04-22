@@ -51,6 +51,8 @@ export class Lace{
         container.appendChild(div);
 
         this.container = div;
+
+        this.injectStyles();
     }
 
     /**
@@ -227,5 +229,26 @@ export class Lace{
         }
 
         return foundElements;
+    }
+
+    /**
+     * Injects styles for some Lace elements into the document head.
+
+     */
+    private injectStyles(): void {
+        if(document.getElementById('lacery-style')) return;
+
+        const style = document.createElement('style');
+        style.id = 'lacery-style';
+        style.textContent = `
+            .tab-panel::part(base){
+                padding-left: 0.5rem;
+            }
+
+            .small::part(form-control-label){
+                font-size: var(--sl-input-label-font-size-small);
+            }
+        `;
+        document.head.appendChild(style);
     }
 }
