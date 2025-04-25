@@ -68,7 +68,7 @@ export class TabElement extends LaceElement{
      * @param iconName - The name of the icon to be displayed in the tab.
      * @returns The `LaceTab` instance representing the added tab.
      */
-    addTab(label: string, iconName: string): LaceTab {
+    addTab(label: string, iconName: string, iconLibrary: string = ""): LaceTab {
         const tabPanel: SlTabPanel = document.createElement('sl-tab-panel');
         tabPanel.name = label;
         tabPanel.classList.add('tab-panel');
@@ -78,7 +78,7 @@ export class TabElement extends LaceElement{
         tab.panel = label;
         
         const icon: SlIcon = document.createElement('sl-icon');
-        icon.library = 'lucide';
+        icon.library = iconLibrary;
         icon.name = iconName;
         icon.style.fontSize = '1.3em';
         tab.appendChild(icon);

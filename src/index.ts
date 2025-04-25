@@ -4,6 +4,7 @@ export * from './laceElement';
 
 // Element Exports
 export * from './elements/booleanElement';
+export * from './elements/buttonElement';
 export * from './elements/colorElement';
 export * from './elements/folderElement';
 export * from './elements/groupElement';
