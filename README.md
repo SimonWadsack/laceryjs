@@ -64,6 +64,10 @@ lace.add(new NumberElement("Label", VARS, "example"));
 Find the detailed documentation in the [Wiki](https://github.com/SimonWadsack/laceryjs/wiki).
 
 
+## Changelog
+
+Find the changelog [here](https://github.com/SimonWadsack/laceryjs/blob/main/CHANGELOG.md).
+
 ## Inspiration
 
 This project was inspired by [imgui](https://github.com/ocornut/imgui),  [lil-gui](https://github.com/georgealways/lil-gui) and [Tweakpane](https://tweakpane.github.io/docs/).

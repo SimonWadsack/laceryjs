@@ -62,6 +62,9 @@ lace.add(new NumberElement("Label", VARS, "example"));
 
 Find the detailed documentation in the [Wiki](https://github.com/SimonWadsack/laceryjs/wiki).
 
+## Changelog
+
+Find the changelog [here](https://github.com/SimonWadsack/laceryjs/blob/main/CHANGELOG.md).
 
 ## Inspiration
 

@@ -8,6 +8,8 @@ import { SlIcon, SlInput } from '@shoelace-style/shoelace';
  */
 interface TextureOptions {
     size?: number;
+    onTextureAdded?: () => void;
+    onTextureRemoved?: () => void;
 }
 
 /**
@@ -15,12 +17,13 @@ interface TextureOptions {
  * 
  * @extends LaceElement
  */
-export class TextureElement extends LaceElement{
+export class TextureElementChange extends LaceElement{
     private obj: any;
     private key: string;
     private img: HTMLImageElement;
     private name: string;
     private size : number;
+    private hasTextureFlag: boolean = false;
 
     /**
      * Creates a new `TextureElement` instance.
@@ -34,7 +37,7 @@ export class TextureElement extends LaceElement{
      * The representation of the texture should be a dataURL string, if the value is empty, it will show a placeholder image until the user uploads a new one.
      */
     constructor(label: string, obj: any, key: string, options: TextureOptions = {}) {
-        const {size = 80} = options;
+        const { size = 80, onTextureAdded = () => {}, onTextureRemoved = () => {} } = options;
         const div = document.createElement('div');
         div.style.display = 'flex';
         div.style.flexDirection = 'row';
@@ -47,6 +50,7 @@ export class TextureElement extends LaceElement{
         const imageContainer = document.createElement('div');
         imageContainer.style.position = 'relative';
         imageContainer.style.cursor = 'pointer';
+        imageContainer.style.fontSize = '30px';
 
         const img: HTMLImageElement = document.createElement('img');
         img.style.width = size + 'px';
@@ -58,8 +62,7 @@ export class TextureElement extends LaceElement{
         imageContainer.appendChild(img);
 
         const uploadIcon: SlIcon = document.createElement('sl-icon');
-        uploadIcon.name = 'arrow-up-from-line';
-        uploadIcon.library = 'lucide';
+        uploadIcon.name = 'upload';
         uploadIcon.style.position = 'absolute';
         uploadIcon.style.top = '50%';
         uploadIcon.style.left = '50%';
@@ -68,6 +71,17 @@ export class TextureElement extends LaceElement{
         uploadIcon.style.opacity = '0';
         uploadIcon.style.transition = 'opacity 0.1s ease';
         imageContainer.appendChild(uploadIcon);
+
+        const removeIcon: SlIcon = document.createElement('sl-icon');
+        removeIcon.name = 'x-lg';
+        removeIcon.style.position = 'absolute';
+        removeIcon.style.top = '50%';
+        removeIcon.style.left = '50%';
+        removeIcon.style.transform = 'translate(-50%, -50%)';
+        removeIcon.style.color = 'white';
+        removeIcon.style.opacity = '0';
+        removeIcon.style.transition = 'opacity 0.1s ease';
+        imageContainer.appendChild(removeIcon);
 
         div.appendChild(labelElement);
         div.appendChild(imageContainer);
@@ -80,15 +94,27 @@ export class TextureElement extends LaceElement{
         this.name = label;
         this.size = size;
 
-        imageContainer.onclick = this.uploadImage.bind(this);
+        imageContainer.onclick = () => {
+            if(this.hasTextureFlag){
+                this.obj[this.key] = "";
+                this.update();
+                onTextureRemoved();
+            }
+            else {
+                this.uploadImage(onTextureAdded);
+            }
+        }
+
         imageContainer.onmouseover = () => {
             this.img.style.filter = 'brightness(50%)';
-            uploadIcon.style.opacity = '1';
+            uploadIcon.style.opacity = this.hasTextureFlag ? '0' : '1';
+            removeIcon.style.opacity = this.hasTextureFlag ? '1' : '0';
         };
 
         imageContainer.onmouseout = () => {
             this.img.style.filter = 'none';
             uploadIcon.style.opacity = '0';
+            removeIcon.style.opacity = '0';
         };
 
         this.update();
@@ -104,12 +130,17 @@ export class TextureElement extends LaceElement{
 
     update(): void {
         const dataURL = this.obj[this.key];
-        this.img.src = this.isValidDataURL(dataURL) ? dataURL : `https://placehold.co/${this.size}?text=${this.name}&font=roboto`;
+        this.hasTextureFlag = this.isValidDataURL(dataURL);
+        this.img.src = this.hasTextureFlag ? dataURL : `https://placehold.co/${this.size}?text=${this.name}&font=roboto`;
     }
 
     setSize(size: "small" | "medium" | "large"): void {}
 
-    private uploadImage(): void {
+    public hasTexture(): boolean {
+        return this.hasTextureFlag;
+    }
+
+    private uploadImage(onTextureAdded: () => void): void {
         const input = document.createElement('input');
         input.type = 'file';
         input.accept = '.png, .jpg, .jpeg';
@@ -123,6 +154,7 @@ export class TextureElement extends LaceElement{
                         this.obj[this.key] = reader.result as string;
                         this.update();
                         this.changed();
+                        onTextureAdded();
                     };
                     reader.readAsDataURL(file);
                 }
