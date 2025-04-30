@@ -17,7 +17,7 @@ interface TextureOptions {
  * 
  * @extends LaceElement
  */
-export class TextureElementChange extends LaceElement{
+export class TextureElement extends LaceElement{
     private obj: any;
     private key: string;
     private img: HTMLImageElement;
