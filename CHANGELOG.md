@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 <br>
 
+## [1.1.3] - 2025-04-30
+
+## Fixes
+
+- Small callback fix for `TextureElement`
+
 ## [1.1.2] - 2025-04-30
 
 ## Fixes

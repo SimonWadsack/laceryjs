@@ -98,6 +98,7 @@ export class TextureElement extends LaceElement{
             if(this.hasTextureFlag){
                 this.obj[this.key] = "";
                 this.update();
+                this.changed();
                 onTextureRemoved();
             }
             else {
