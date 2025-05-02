@@ -36,7 +36,7 @@ export class LabelElement extends LaceElement{
         span.style.fontWeight = bold ? "bold" : "normal";
         span.style.fontStyle = italic ? "italic" : "normal";
         span.innerHTML = text;
-        span.innerHTML = block ? "<p style='text-align: justify'>" + span.innerHTML + "</p>" : span.innerHTML;
+        span.innerHTML = block ? "<div style='text-align: justify'>" + span.innerHTML + "</div>" : span.innerHTML;
         span.innerHTML += newLine ? "<br>" : "";
 
         super("laceLabel", span);

@@ -105,6 +105,7 @@ export class Lace{
      * @returns The created `TabElement`.
      */
     public addTab(options: TabOptions = {}): TabElement {
+        if(options.vertical) this.container.style.overflow = 'hidden';
         const tab = new TabElement(this, options);
         this.add(tab);
         return tab;
@@ -242,8 +243,20 @@ export class Lace{
         const style = document.createElement('style');
         style.id = 'lacery-style';
         style.textContent = `
+            .tab-panel{
+                height: 100%;
+            }
+
             .tab-panel::part(base){
                 padding-left: 0.5rem;
+            }
+
+            sl-tab-group{
+                height: 100%;
+            }
+
+            sl-tab-group::part(base){
+                height: 100%;
             }
 
             .small::part(form-control-label){

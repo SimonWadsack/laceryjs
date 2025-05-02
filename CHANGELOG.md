@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 <br>
 
+## [1.1.4] - 2025-05-02
+
+### Fixes
+
+- Scrolling inside vertical tabs
+- Wrong padding inside `LabelElement`
+
 ## [1.1.3] - 2025-04-30
 
 ## Fixes

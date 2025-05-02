@@ -159,6 +159,11 @@ export class LaceTab{
         div.style.color = 'var(--sl-input-color) !important';
 
         tabPanel.appendChild(div);
+        
+        const br = document.createElement('br');
+        const br2 = document.createElement('br');
+        tabPanel.appendChild(br);
+        tabPanel.appendChild(br2);
 
         this.tabPanel = tabPanel;
         this.lace = lace;
