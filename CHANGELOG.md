@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 <br>
 
+## [1.1.6] - 2025-05-03
+
+### Fixes
+
+- `TextureElement` fix for creating too many object URLs
+
 ## [1.1.5] - 2025-05-03
 
 ### Changes

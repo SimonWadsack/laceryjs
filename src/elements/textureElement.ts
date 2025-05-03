@@ -97,7 +97,7 @@ export class TextureElement extends LaceElement{
         imageContainer.onclick = () => {
             if(this.hasTextureFlag){
                 this.obj[this.key] = null;
-                this.update();
+                this.updateBlob();
                 this.changed();
                 onTextureRemoved();
             }
@@ -118,7 +118,7 @@ export class TextureElement extends LaceElement{
             removeIcon.style.opacity = '0';
         };
 
-        this.update();
+        this.updateBlob();
     }
 
     getObj(): any {
@@ -129,7 +129,10 @@ export class TextureElement extends LaceElement{
         return [this.key];
     }
 
-    update(): void {
+    update(): void {}
+
+    private updateBlob(): void {
+        if(this.img.src.startsWith('blob:')) URL.revokeObjectURL(this.img.src);
         const blob = this.obj[this.key];
         this.hasTextureFlag = blob !== null && blob !== undefined;
         if(this.hasTextureFlag && blob instanceof Blob){
@@ -156,7 +159,7 @@ export class TextureElement extends LaceElement{
                 const file = target.files?.item(0);
                 if(file){
                     this.obj[this.key] = file;
-                    this.update();
+                    this.updateBlob();
                     this.changed();
                     onTextureAdded();
                 }
@@ -166,10 +169,5 @@ export class TextureElement extends LaceElement{
             }
         };
         input.click();
-    }
-
-    private isValidDataURL(dataURL: string): boolean {
-        const pattern = /^data:image\/(png|jpg|jpeg);base64,[A-Za-z0-9+/]+={0,2}$/;
-        return pattern.test(dataURL);
     }
 }
