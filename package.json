@@ -1,6 +1,6 @@
 {
   "name": "lacery",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "A UI library to quickly build data-driven interfaces based on Shoelace.",
   "type": "module",
   "main": "dist/index.js",
