@@ -2,11 +2,11 @@ import { LaceElement } from "../laceElement";
 import { SlIcon, SlInput } from '@shoelace-style/shoelace';
 
 /**
- * Configuration options for a `TextureElement`.
+ * Configuration options for a `DataURLTextureElement`.
  * 
  * @property size - Optional size of the texture image in pixels.
  */
-interface TextureOptions {
+interface DataURLTextureOptions {
     size?: number;
     onTextureAdded?: () => void;
     onTextureRemoved?: () => void;
@@ -16,8 +16,12 @@ interface TextureOptions {
  * A texture element that allows the user to upload and display an image.
  * 
  * @extends LaceElement
+ * 
+ * @remarks
+ * This elements is only for dataURL textures, if you want to use a texture from a file, use the `TextureElement` instead.
+ * It still exists for backward compatibility, but it is not recommended to use it.
  */
-export class TextureElement extends LaceElement{
+export class DataURLTextureElement extends LaceElement{
     private obj: any;
     private key: string;
     private img: HTMLImageElement;
@@ -26,7 +30,7 @@ export class TextureElement extends LaceElement{
     private hasTextureFlag: boolean = false;
 
     /**
-     * Creates a new `TextureElement` instance.
+     * Creates a new `DataURLTextureElement` instance.
      * 
      * @param label - The label for the texture element.
      * @param obj - The object containing the image data.
@@ -34,9 +38,9 @@ export class TextureElement extends LaceElement{
      * @param options - Optional configuration for the texture element.
      * 
      * @remarks
-     * The representation of the texture should be a Blob | null, if the value is null, it will show a placeholder image until the user uploads a new one.
+     * The representation of the texture should be a dataURL string, if the value is empty, it will show a placeholder image until the user uploads a new one.
      */
-    constructor(label: string, obj: any, key: string, options: TextureOptions = {}) {
+    constructor(label: string, obj: any, key: string, options: DataURLTextureOptions = {}) {
         const { size = 80, onTextureAdded = () => {}, onTextureRemoved = () => {} } = options;
         const div = document.createElement('div');
         div.style.display = 'flex';
@@ -96,7 +100,7 @@ export class TextureElement extends LaceElement{
 
         imageContainer.onclick = () => {
             if(this.hasTextureFlag){
-                this.obj[this.key] = null;
+                this.obj[this.key] = "";
                 this.update();
                 this.changed();
                 onTextureRemoved();
@@ -130,14 +134,9 @@ export class TextureElement extends LaceElement{
     }
 
     update(): void {
-        const blob = this.obj[this.key];
-        this.hasTextureFlag = blob !== null && blob !== undefined;
-        if(this.hasTextureFlag && blob instanceof Blob){
-            this.img.src = URL.createObjectURL(blob);
-        }
-        else {
-            this.img.src = `https://placehold.co/${this.size}?text=${this.name}&font=roboto`;
-        }
+        const dataURL = this.obj[this.key];
+        this.hasTextureFlag = this.isValidDataURL(dataURL);
+        this.img.src = this.hasTextureFlag ? dataURL : `https://placehold.co/${this.size}?text=${this.name}&font=roboto`;
     }
 
     setSize(size: "small" | "medium" | "large"): void {}
@@ -155,10 +154,14 @@ export class TextureElement extends LaceElement{
                 const target = event.target as HTMLInputElement;
                 const file = target.files?.item(0);
                 if(file){
-                    this.obj[this.key] = file;
-                    this.update();
-                    this.changed();
-                    onTextureAdded();
+                    const reader = new FileReader();
+                    reader.onload = (event: Event) => {
+                        this.obj[this.key] = reader.result as string;
+                        this.update();
+                        this.changed();
+                        onTextureAdded();
+                    };
+                    reader.readAsDataURL(file);
                 }
             }
             catch(e){

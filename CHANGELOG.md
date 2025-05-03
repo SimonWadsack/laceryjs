@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 <br>
 
+## [1.1.5] - 2025-05-03
+
+### Changes
+
+- `TextureElement` now binds a `Blob` instead of the dataURL directly, this makes handling images easier and saves memory
+- To still support dataURL bindings for those who need it, the old `TextureElement` is now `DataURLTextureElement`
+
 ## [1.1.4] - 2025-05-02
 
 ### Fixes
