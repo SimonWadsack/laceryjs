@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 <br>
 
+## [1.1.7] - 2025-05-07
+
+### Added
+
+- `NumberSelectElement` and `TextSelectElement` now have a `previews` and `previewSize` option to show images in front of the option in the dropdown
+
 ## [1.1.6] - 2025-05-03
 
 ### Fixes
