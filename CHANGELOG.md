@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 <br>
 
+## [1.2.0] - 2025-05-09
+
+### Added
+
+- New `ButtonSelectElement`
+
 ## [1.1.7] - 2025-05-07
 
 ### Added

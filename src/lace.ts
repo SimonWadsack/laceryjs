@@ -262,6 +262,10 @@ export class Lace{
             .small::part(form-control-label){
                 font-size: var(--sl-input-label-font-size-small);
             }
+
+            .lacery-menu-item::part(base):hover{
+                background-color: var(--sl-color-neutral-200);
+            }
         `;
         document.head.appendChild(style);
     }
