@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 <br>
 
+## [1.2.1] - 2025-05-10
+
+### Changed
+
+- `TextureElement` now has a public `updateBlob` that re-fetches from the bound object.
+
 ## [1.2.0] - 2025-05-09
 
 ### Added

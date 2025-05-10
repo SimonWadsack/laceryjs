@@ -131,7 +131,13 @@ export class TextureElement extends LaceElement{
 
     update(): void {}
 
-    private updateBlob(): void {
+    /**
+     * Updates the image source. DOES NOT TRIGGER A CHANGE.
+     * 
+     * @remarks
+     * Can be quite expensive, so use only when necessary.
+     */
+    public updateBlob(): void {
         if(this.img.src.startsWith('blob:')) URL.revokeObjectURL(this.img.src);
         const blob = this.obj[this.key];
         this.hasTextureFlag = blob !== null && blob !== undefined;
