@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 <br>
 
+## [1.2.2] - 2025-05-12
+
+### Fixed
+
+- `NumberSelectElement`, `TextSelectElement` and `ButtonSelectElement` emitting false warnings
+
 ## [1.2.1] - 2025-05-10
 
 ### Changed

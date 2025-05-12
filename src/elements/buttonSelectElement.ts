@@ -56,7 +56,7 @@ export class ButtonSelectElement extends LaceElement{
 
         var index = 0;
         const showPreviews = previews.length > 0 && previews.length == Object.keys(selectOptions).length;
-        if(!showPreviews) console.warn("Previews are not shown because the number of previews does not match the number of options.");
+        if(previews.length > 0 && !showPreviews) console.warn("Previews are not shown because the number of previews does not match the number of options.");
 
         for(const key in selectOptions){
             const item: SlMenuItem = document.createElement('sl-menu-item');
