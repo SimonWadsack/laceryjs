@@ -31,7 +31,7 @@ export class BooleanElement extends LaceElement{
     constructor(label: string, obj: any, key: string, options: BooleanOptions = {}) {
         const {help = ""} = options;
         const checkbox: SlCheckbox = document.createElement('sl-checkbox');
-        checkbox.style.display = "block !important";
+        checkbox.style.display = "block";
         checkbox.textContent = label;
         checkbox.helpText = help;
         checkbox.checked = obj[key];

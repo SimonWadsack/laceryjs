@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 <br>
 
+## [1.2.4] - 2025-05-13
+
+### Fixed
+
+- `BooleanElement` weird spacing afterwards now actually fixed
+
 ## [1.2.3] - 2025-05-13
 
 ### Fixed
