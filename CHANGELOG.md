@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 <br>
 
+## [1.2.5] - 2025-05-24
+
+### Fixed
+
+- `ButtonElement` and `ButtonSelectElement` display with better spacing
+
 ## [1.2.4] - 2025-05-13
 
 ### Fixed

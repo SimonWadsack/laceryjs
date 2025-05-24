@@ -45,6 +45,7 @@ export class ButtonElement extends LaceElement{
         newButton.outline = outline;
         newButton.pill = pill;
         newButton.style.width = "100%";
+        newButton.style.display = "block";
 
         if(prefixIcon !== ""){
             const prefixIconElement = document.createElement('sl-icon');

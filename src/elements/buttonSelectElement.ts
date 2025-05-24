@@ -48,6 +48,7 @@ export class ButtonSelectElement extends LaceElement{
         button.outline = outline;
         button.pill = pill;
         button.style.width = '100%';
+        button.style.display = 'block';
         button.appendChild(document.createTextNode(label));
         dropdown.appendChild(button);
 
