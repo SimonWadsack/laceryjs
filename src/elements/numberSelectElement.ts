@@ -7,11 +7,13 @@ import { SlSelect, SlOption } from '@shoelace-style/shoelace';
  * @property help - Optional help text to display with the select element.
  * @property previews - Optional array of preview image srcs to display.
  * @property previewSize - Optional size of the preview images in pixel.
+ * @property hoist - Optional flag to hoist the select element.
  */
 interface NumberSelectOptions {
     help?: string;
     previews? : string[];
     previewSize?: number;
+    hoist?: boolean;
 }
 
 /**
@@ -34,12 +36,13 @@ export class NumberSelectElement extends LaceElement{
      * @param options - Optional configuration for the number select element.
      */
     constructor(label: string, obj: any, key: string, selectOptions: { [key: number]: string } , options: NumberSelectOptions = {}) {
-        const {help = "", previews = [], previewSize = 40} = options;
+        const {help = "", previews = [], previewSize = 40, hoist = true} = options;
         if(!selectOptions[obj[key]]) selectOptions[obj[key]] = "Original";
         const select: SlSelect = document.createElement('sl-select');
         select.label = label;
         select.helpText = help;
         select.placeholder = '-';
+        select.hoist = hoist;
 
         var index = 0;
         const showPreviews = previews.length > 0 && previews.length == Object.keys(selectOptions).length;

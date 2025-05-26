@@ -8,10 +8,12 @@ import { SlDetails } from "@shoelace-style/shoelace";
  * 
  * @property darkMode - Optional flag to enable dark mode styling.
  * @property small - Optional flag to use small size for the folder element.
+ * @property open - Optional flag to set the folder as open by default.
  */
 export interface FolderOptions {
     darkMode?: boolean;
     small?: boolean;
+    open?: boolean;
 }
 
 /**
@@ -27,10 +29,10 @@ export class FolderElement extends LaceElement{
     private small: boolean;
 
     constructor(label: string, lace: Lace, options: FolderOptions = {}) {
-        const {darkMode = false, small = true} = options;
+        const {darkMode = false, small = true, open = true} = options;
         const details: SlDetails = document.createElement('sl-details');
         details.summary = label;
-        details.open = true;
+        details.open = open;
         details.style.color = 'var(--sl-input-color) !important';
 
         if(darkMode){

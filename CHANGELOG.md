@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 <br>
 
+## [1.2.6] - 2025-05-26
+
+### Added
+
+- `FolderElement` now has an open option and the default is true
+- `NumberSelectElement`, `TextSelectElement` and `ButtonSelectElement` now have a hoist option and the default is now true
+
 ## [1.2.5] - 2025-05-24
 
 ### Fixed

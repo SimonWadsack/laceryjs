@@ -9,6 +9,7 @@ import { SlButton, SlDropdown, SlMenu, SlMenuItem } from '@shoelace-style/shoela
  * @property pill - Optional flag to display the button as a pill button.
  * @property previews - Optional array of preview image srcs to display.
  * @property previewSize - Optional size of the preview images in pixel.
+ * @property hoist - Optional flag to hoist the select element.
  */
 interface ButtonSelectOptions {
     variant?: "default" | "primary" | "success" | "neutral" | "warning" | "danger";
@@ -16,6 +17,7 @@ interface ButtonSelectOptions {
     pill?: boolean;
     previews? : string[];
     previewSize?: number;
+    hoist?: boolean;
 }
 
 /**
@@ -35,11 +37,12 @@ export class ButtonSelectElement extends LaceElement{
      * @param options - Optional configuration for the number select element.
      */
     constructor(label: string, selectOptions: { [key: string]: string }, onClick: (key: string) => void, options: ButtonSelectOptions = {}) {
-        const { variant = 'default', outline = true, pill = false, previews = [], previewSize = 40} = options;
+        const { variant = 'default', outline = true, pill = false, previews = [], previewSize = 40, hoist = true} = options;
 
         const dropdown: SlDropdown = document.createElement('sl-dropdown');
         dropdown.style.width = '100%';
         dropdown.style.paddingBottom = '1rem'
+        dropdown.hoist = hoist;
 
         const button: SlButton = document.createElement('sl-button');
         button.slot = "trigger";
