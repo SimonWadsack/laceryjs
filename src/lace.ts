@@ -157,6 +157,7 @@ export class Lace{
     /**
      * Connects a `LaceElement` to other elements with the same object and keys.
      * Synchronizes updates between connected elements.
+     * Additionally handles setup of the display propertiy for proper hiding and showing.
      * 
      * @remarks
      * This method is primarily intended for internal use within the `Lace` class
@@ -168,6 +169,7 @@ export class Lace{
      * @internal
      */
     public connect(element: LaceElement): void {
+        if(element.element.dataset.display === undefined) element.element.dataset.display = element.element.style.display; // Store the original display style for showing and hiding
         if(element instanceof FolderElement) return;
         if(element instanceof GroupElement) return;
 

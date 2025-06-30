@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 <br>
 
+## [1.2.7] - 2025-06-30
+
+### Added
+
+- New `CustomElement`
+
+### Fixed
+
+- Showing and hiding layout fix - when showing an already shown element, the layout broke
+
 ## [1.2.6] - 2025-05-26
 
 ### Added
